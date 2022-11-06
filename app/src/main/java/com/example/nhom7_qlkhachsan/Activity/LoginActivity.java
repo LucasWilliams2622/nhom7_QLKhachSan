@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 //
 //                } else {
 //                    Toast.makeText(LoginActivity.this, "Username or password is wrong !!!", Toast.LENGTH_SHORT).show();
-//                }
+ //               }
 
             }
         });
@@ -57,8 +57,9 @@ public class LoginActivity extends AppCompatActivity {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-//                startActivity(intent);
+               Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+               startActivity(intent);
+
             }
         });
 

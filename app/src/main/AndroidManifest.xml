@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Nhom7_QLKhachSan"
         tools:targetApi="31">
         <activity
-            android:name=".Activity.BeginActivity"
+            android:name=".Activity.RoomActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -23,12 +23,35 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activity.BeginActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+
+        </activity>
+        <activity
+            android:name=".Activity.RegisterActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
 
         </activity>
         <activity
             android:name=".Activity.LoginActivity"
             android:exported="true">
-
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
