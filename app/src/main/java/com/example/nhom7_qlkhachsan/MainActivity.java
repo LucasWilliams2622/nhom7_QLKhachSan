@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.example.nhom7_qlkhachsan.Activity.LoginActivity;
 import com.example.nhom7_qlkhachsan.Fragment.ServiceFragment;
 import com.google.android.material.navigation.NavigationView;
-
+//dz ziet
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     FrameLayout frameLayout;
