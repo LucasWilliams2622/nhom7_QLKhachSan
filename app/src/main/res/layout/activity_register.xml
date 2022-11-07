@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:outlineAmbientShadowColor="#7E6F6F"
     android:padding="5dp"
-    android:background="@drawable/background"
-    tools:context=".RegisterActivity">
+    android:background="@drawable/background_login"
+    tools:context=".Activity.RegisterActivity">
 
     <EditText
         android:id="@+id/edtUsernameRegister"
