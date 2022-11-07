@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.nhom7_qlkhachsan.Activity.LoginActivity;
+import com.example.nhom7_qlkhachsan.Fragment.DatPhongFragment;
 import com.example.nhom7_qlkhachsan.Fragment.ServiceFragment;
 import com.google.android.material.navigation.NavigationView;
 //dz ziet
@@ -50,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.mDichVu:
                         fragment = new ServiceFragment();
                         break;
-//                    case R.id.mQLLoaiSach:
-//                        fragment = new QLLoaiSachFragment();
-//                        break;
+                    case R.id.mDatPhong:
+                        fragment = new DatPhongFragment();
+                        break;
 //                    case R.id.mQLSach:
 //                        fragment = new QLSachFragment();
 //                        break;
