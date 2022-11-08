@@ -17,6 +17,7 @@
             android:layout_weight="4">
 
             <ImageView
+                android:id="@+id/ivRoom"
                 android:layout_margin="3dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -79,6 +80,7 @@
 
 
             <EditText
+                android:id="@+id/txtStartDay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Ngày check out:"
@@ -86,6 +88,7 @@
                 android:textColorHint="@color/black" />
 
             <EditText
+                android:id="@+id/txtEndDay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Ngày check out:"
@@ -98,6 +101,7 @@
                 android:layout_margin="8dp"
                 android:orientation="horizontal">
                 <Button
+                    android:id="@+id/btnHuyPhong"
                     android:layout_weight="1"
                     android:text="Huỷ Phòng"
                     android:layout_width="wrap_content"
