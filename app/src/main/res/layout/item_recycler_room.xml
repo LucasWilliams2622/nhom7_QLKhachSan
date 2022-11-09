@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-
     app:cardCornerRadius="6dp">
 
     <LinearLayout
@@ -38,7 +37,7 @@
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
                 android:paddingRight="15dp"
-                android:text="aaaaaaaaaaaaaaaaa"
+                android:text="Tên phòng: R002"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="normal" />
@@ -50,7 +49,7 @@
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
                 android:paddingRight="15dp"
-                android:text="aaaaaaaaaaaaaaaaa"
+                android:text="Loại phòng: King Room"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="normal" />
@@ -62,7 +61,7 @@
                 android:paddingLeft="15dp"
                 android:paddingTop="5dp"
                 android:paddingRight="15dp"
-                android:text="aaaaaaaaaaaaaaaaa"
+                android:text="Gía phòng: 999$"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="normal" />
@@ -71,7 +70,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ngày check out:"
+                android:hint="Ngày check in:"
                 android:paddingLeft="15dp"
                 android:textColorHint="@color/black" />
 
@@ -97,6 +96,9 @@
 
         </LinearLayout>
     </LinearLayout>
+
+
+
 
 
 </androidx.cardview.widget.CardView>
