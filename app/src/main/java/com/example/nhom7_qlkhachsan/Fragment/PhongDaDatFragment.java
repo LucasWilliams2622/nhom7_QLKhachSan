@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class PhongDaDatFragment extends Fragment {
     RecyclerView recyclerBookedRoom;
-
+    BookedRoomAdapter bookedRoomAdapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -31,9 +31,8 @@ public class PhongDaDatFragment extends Fragment {
     }
     private  void loadData(){
         ArrayList<AppRoom> list = new ArrayList<>();
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        recyclerBookedRoom.setLayoutManager(linearLayoutManager);
-        BookedRoomAdapter bookedRoomAdapter= new BookedRoomAdapter(getContext(), list);
-        recyclerBookedRoom.setAdapter(bookedRoomAdapter);
+        bookedRoomAdapter = new BookedRoomAdapter(getContext(),list);
+       // recyclerBookedRoom.setAdapter(bookedRoomAdapter);
+
     }
 }
