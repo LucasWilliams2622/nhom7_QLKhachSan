@@ -17,12 +17,9 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.nhom7_qlkhachsan.Activity.LoginActivity;
-import com.example.nhom7_qlkhachsan.Fragment.DatPhongFragment;
-import com.example.nhom7_qlkhachsan.Fragment.HoTroKHFragment;
-import com.example.nhom7_qlkhachsan.Fragment.PhongDaDatFragment;
 import com.example.nhom7_qlkhachsan.Fragment.ServiceFragment;
 import com.google.android.material.navigation.NavigationView;
-//dz ziet
+
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     FrameLayout frameLayout;
@@ -53,15 +50,15 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.mDichVu:
                         fragment = new ServiceFragment();
                         break;
-                    case R.id.mDatPhong:
-                        fragment = new DatPhongFragment();
-                        break;
-                    case R.id.mPhongDaDat:
-                        fragment = new PhongDaDatFragment();
-                        break;
-                    case R.id.mTuVanKH:
-                        fragment = new HoTroKHFragment();
-                        break;
+//                    case R.id.mQLLoaiSach:
+//                        fragment = new QLLoaiSachFragment();
+//                        break;
+//                    case R.id.mQLSach:
+//                        fragment = new QLSachFragment();
+//                        break;
+//                    case R.id.mQLThanhVien:
+//                        fragment = new QLThanhVienFragment();
+//                        break;
 //                    case R.id.mTop10:
 //                        fragment = new Top10Fragment();
 //                        break;
@@ -70,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
 //                        break;
 //                    case R.id.mDoiMatKhau:
 //                        showDialogChangePass();
-                    //ahahahah
 //                        break;
                     case R.id.mDangXuat:
                         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -97,15 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-//sơn aaaaa
 
-    }
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() ==  android.R.id.home){
-            drawerLayout.openDrawer(GravityCompat.START);
-        }
-        return super.onOptionsItemSelected(item);
-
+        //HhHh
     }
 }
