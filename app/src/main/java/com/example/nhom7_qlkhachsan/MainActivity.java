@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.example.nhom7_qlkhachsan.Activity.LoginActivity;
 import com.example.nhom7_qlkhachsan.Fragment.DatPhongFragment;
+import com.example.nhom7_qlkhachsan.Fragment.DoanhThuFragment;
 import com.example.nhom7_qlkhachsan.Fragment.HoTroKHFragment;
 import com.example.nhom7_qlkhachsan.Fragment.PhongDaDatFragment;
 import com.example.nhom7_qlkhachsan.Fragment.ServiceFragment;
@@ -62,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.mTuVanKH:
                         fragment = new HoTroKHFragment();
                         break;
-//                    case R.id.mTop10:
-//                        fragment = new Top10Fragment();
-//                        break;
+                    case R.id.mDoanhThu:
+                        fragment = new DoanhThuFragment();
+                        break;
 //                    case R.id.mDoanhThu:
 //                        fragment = new DoanhThuFragment();
 //                        break;
