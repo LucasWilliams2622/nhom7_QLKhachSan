@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import com.example.nhom7_qlkhachsan.Activity.LoginActivity;
 import com.example.nhom7_qlkhachsan.Fragment.DatPhongFragment;
+import com.example.nhom7_qlkhachsan.Fragment.HoTroKHFragment;
+import com.example.nhom7_qlkhachsan.Fragment.PhongDaDatFragment;
 import com.example.nhom7_qlkhachsan.Fragment.ServiceFragment;
 import com.google.android.material.navigation.NavigationView;
 //dz ziet
@@ -54,12 +56,12 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.mDatPhong:
                         fragment = new DatPhongFragment();
                         break;
-//                    case R.id.mQLSach:
-//                        fragment = new QLSachFragment();
-//                        break;
-//                    case R.id.mQLThanhVien:
-//                        fragment = new QLThanhVienFragment();
-//                        break;
+                    case R.id.mPhongDaDat:
+                        fragment = new PhongDaDatFragment();
+                        break;
+                    case R.id.mTuVanKH:
+                        fragment = new HoTroKHFragment();
+                        break;
 //                    case R.id.mTop10:
 //                        fragment = new Top10Fragment();
 //                        break;

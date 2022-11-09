@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nhom7_qlkhachsan.Fragment.DatPhongFragment;
 import com.example.nhom7_qlkhachsan.Model.AppRoom;
 import com.example.nhom7_qlkhachsan.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -42,6 +43,11 @@ public class RoomActivity extends AppCompatActivity {
         edtEndDay = findViewById(R.id.edtEndDay);
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getData();
+    }
     public void getData(){
         db.collection("room")
                 .get()
@@ -49,24 +55,25 @@ public class RoomActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-//                            ArrayList<AppRoom> list = new ArrayList<>();
-//                            for (QueryDocumentSnapshot document : task.getResult()) {
-//                                Map<String,Object> map = document.getData();
-//                                String idRoom = map.get("idRoom").toString();
-//                                String idRoom = map.get("idRoom").toString();
-//                                String idRoom = map.get("idRoom").toString();
-//                                String idRoom = map.get("idRoom").toString();
-//                                String idRoom = map.get("idRoom").toString();
-//
-//// private String idRoom,nameRoom,typeRoom,priceRoom,startDay,endDay;
-//                                AppCourse course = new AppCourse(-1,1,code,name,time,room);
-//                                course.setCourseId(document.getId());
-//                                list.add(course);
-//                            }
-//                            getSupportFragmentManager()
-//                                    .beginTransaction()
-//                                    .replace(R.id.frm, CourseFragment.newInstance(list))
-//                                    .commit();
+                            ArrayList<AppRoom> list = new ArrayList<>();
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Map<String,Object> map = document.getData();
+                                String idRoom = map.get("idRoom").toString();
+                                String nameRoom = map.get("nameRoom").toString();
+                                String typeRoom = map.get("typeRoom").toString();
+                                String priceRoom = map.get("priceRoom").toString();
+                                String startDay = map.get("startDay").toString();
+                                String endDay = map.get("endDay").toString();
+
+
+                                AppRoom room = new AppRoom(idRoom,nameRoom,typeRoom,priceRoom,startDay,endDay);
+                                room.setIdRoom(document.getId());
+                                list.add(room);
+                            }
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.flRoom, DatPhongFragment.newInstance(list))
+                                    .commit();
                         }
                     }
                 });
