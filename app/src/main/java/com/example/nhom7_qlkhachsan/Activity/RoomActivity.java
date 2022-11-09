@@ -7,19 +7,28 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nhom7_qlkhachsan.Fragment.DatPhongFragment;
+import com.example.nhom7_qlkhachsan.Model.AppRoom;
 import com.example.nhom7_qlkhachsan.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class RoomActivity extends AppCompatActivity {
-    private EditText edtIdRoom, edtNameRoom, edtTypeRoom, edtPriceRoom, edtStartDay, edtEndDay;
+    private EditText  edtStartDay, edtEndDay;
+    private TextView edtIdRoom, edtNameRoom, edtTypeRoom, edtPriceRoom;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
@@ -34,7 +43,41 @@ public class RoomActivity extends AppCompatActivity {
         edtEndDay = findViewById(R.id.edtEndDay);
 
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getData();
+    }
+    public void getData(){
+        db.collection("room")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            ArrayList<AppRoom> list = new ArrayList<>();
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Map<String,Object> map = document.getData();
+                                String idRoom = map.get("idRoom").toString();
+                                String nameRoom = map.get("nameRoom").toString();
+                                String typeRoom = map.get("typeRoom").toString();
+                                String priceRoom = map.get("priceRoom").toString();
+                                String startDay = map.get("startDay").toString();
+                                String endDay = map.get("endDay").toString();
 
+
+                                AppRoom room = new AppRoom(idRoom,nameRoom,typeRoom,priceRoom,startDay,endDay);
+                                room.setIdRoom(document.getId());
+                                list.add(room);
+                            }
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.flRoom, DatPhongFragment.newInstance(list))
+                                    .commit();
+                        }
+                    }
+                });
+    }
     public void onSaveClick(View view) {
         String idRoom = edtIdRoom.getText().toString();
         String nameRoom = edtNameRoom.getText().toString();
@@ -69,5 +112,12 @@ public class RoomActivity extends AppCompatActivity {
                     }
                 });
     }
+//    @Override
+//    public void onCancelClick(View view course) {
+//        edtcode.setText(course.getCode());
+//        edtname.setText(course.getName());
+//        edttime.setText(course.getTime());
+//        edtroom.setText(course.getRoom());
+//        appCourse=course;
 
 }

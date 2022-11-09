@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
 //                } else {
 //                    Toast.makeText(LoginActivity.this, "Username or password is wrong !!!", Toast.LENGTH_SHORT).show();
  //               }
-
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
         });
 
