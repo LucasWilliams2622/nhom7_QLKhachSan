@@ -25,7 +25,7 @@ public class PhongDaDatFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_phong_da_dat,container,false);
-        //recyclerBookedRoom = view.findViewById(R.id.recyclerBookedRoom);
+//        recyclerBookedRoom = view.findViewById(R.id.recyclerBookedRoom);
         loadData();
         return view;
     }
