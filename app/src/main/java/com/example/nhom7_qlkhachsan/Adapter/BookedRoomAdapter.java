@@ -46,6 +46,7 @@ public class BookedRoomAdapter extends RecyclerView.Adapter<BookedRoomAdapter.Vi
     public int getItemCount() {
         return list.size();
     }
+
     EditText txtEndDay,txtStartDay;
     Button btnHuyPhong;
     TextView tvTenPhong,tvMaPhong,tvLoaiPhong,tvGiaPhong;
