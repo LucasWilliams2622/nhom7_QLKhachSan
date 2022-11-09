@@ -61,6 +61,15 @@ public class BookedRoomAdapter extends BaseAdapter {
         tvLoaiPhong = view.findViewById(R.id.tvLoaiPhong);
         tvGiaPhong = view.findViewById(R.id.tvGiaPhong);
         ivRoom = view.findViewById(R.id.ivRoom);
+
+        AppRoom room= list.get(position);
+        txtEndDay.setText(room.getEndDay());
+        txtStartDay.setText(room.getStartDay());
+        tvTenPhong.setText(room.getNameRoom());
+        tvMaPhong.setText(room.getIdRoom());
+        tvLoaiPhong.setText(room.getTypeRoom());
+        tvGiaPhong.setText(room.getPriceRoom());
+
         return view;
     }
 
