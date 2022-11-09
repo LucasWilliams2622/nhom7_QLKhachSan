@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 //                        break;
 //                    case R.id.mDoiMatKhau:
 //                        showDialogChangePass();
+                    //ahahahah
 //                        break;
                     case R.id.mDangXuat:
                         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
