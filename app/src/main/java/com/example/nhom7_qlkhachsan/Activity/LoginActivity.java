@@ -1,5 +1,7 @@
 package com.example.nhom7_qlkhachsan.Activity;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,15 +12,25 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.nhom7_qlkhachsan.MainActivity;
 import com.example.nhom7_qlkhachsan.R;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edt_username, edt_password;
@@ -27,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     //Đăng nhập google
     GoogleSignInClient gsc;
     GoogleSignInAccount account;
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     long check = 1;
 
     @Override
@@ -76,21 +88,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String username = edt_username.getText().toString();
                 String password = edt_password.getText().toString();
+                getData();
 
-//                if (thuThuDAO.checkLogin(username, password)) {
-//                    //save shareprefferences
-//                    SharedPreferences sharedPreferences = getSharedPreferences("THONGTIN", MODE_PRIVATE);
-//                    //truyen 2 gia tri 1 la ten sharepreferences va MODE
-//                    SharedPreferences.Editor editor = sharedPreferences.edit();
-//                    editor.putString("matt", username);
-//                    editor.commit();
-//
-//                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-//
-//                } else {
-//                    Toast.makeText(LoginActivity.this, "Username or password is wrong !!!", Toast.LENGTH_SHORT).show();
- //               }
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+
             }
         });
 
@@ -118,5 +118,27 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+    public void getData(){
+        db.collection("admin")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            List<String> list = new ArrayList<>();
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                list.add(document.getId());
+                            }
+                            Log.d(TAG, list.toString());
+                            Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        }
+                        else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                            Toast.makeText(LoginActivity.this, "Đăng nhập không thành công!", Toast.LENGTH_SHORT).sh
+                        }
+                    }
+                });
     }
 }
