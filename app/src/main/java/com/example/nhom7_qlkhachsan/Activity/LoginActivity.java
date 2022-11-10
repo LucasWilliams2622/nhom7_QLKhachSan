@@ -48,26 +48,11 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = edt_username.getText().toString();
-                String password = edt_password.getText().toString();
+                getData();
 
-//                if (thuThuDAO.checkLogin(username, password)) {
-//                    //save shareprefferences
-//                    SharedPreferences sharedPreferences = getSharedPreferences("THONGTIN", MODE_PRIVATE);
-//                    //truyen 2 gia tri 1 la ten sharepreferences va MODE
-//                    SharedPreferences.Editor editor = sharedPreferences.edit();
-//                    editor.putString("matt", username);
-//                    editor.commit();
-//
-//                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-//
-//                } else {
-//                    Toast.makeText(LoginActivity.this, "Username or password is wrong !!!", Toast.LENGTH_SHORT).show();
- //               }
-
-
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
+
+
         });
 
         btn_register.setOnClickListener(new View.OnClickListener() {
@@ -108,9 +93,12 @@ public class LoginActivity extends AppCompatActivity {
                                 list.add(document.getId());
                             }
                             Log.d(TAG, list.toString());
+                            Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         }
                         else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
+                            Toast.makeText(LoginActivity.this, "Đăng nhập không thành công!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
