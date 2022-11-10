@@ -10,79 +10,104 @@
     tools:context=".Activity.RegisterActivity">
 
     <EditText
-        android:id="@+id/edtUsernameRegister"
+        android:id="@+id/edtNameAdmin"
         android:layout_width="343dp"
         android:layout_height="62dp"
         android:ems="10"
-        android:hint="Enter Username"
+        android:hint="Enter Name"
         android:inputType="textPersonName"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/edtPasswordRegister"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.923" />
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmailAdmin" />
 
     <EditText
-        android:id="@+id/edtRePasswordRegister"
-        android:hint="Re-Enter Password"
+        android:id="@+id/edtRoleAdmin"
+        android:layout_width="343dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="Enter Role (Admin | Manager)"
+        android:inputType="textPersonName"
+        android:text=""
         android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtIdAdmin" />
+
+    <EditText
+        android:id="@+id/edtEmailAdmin"
         android:layout_width="343dp"
         android:layout_height="62dp"
         android:ems="10"
+        android:hint="Enter Email"
         android:inputType="textPersonName"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.36" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/edtPasswordRegister"
+        android:id="@+id/edtIdAdmin"
         android:layout_width="343dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Enter Id Admin"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPasswordAdmin" />
+
+    <EditText
+        android:id="@+id/edtPasswordAdmin"
+        android:layout_width="343dp"
+        android:layout_height="62dp"
+
+        android:layout_marginTop="8dp"
+        android:ems="10"
         android:hint="Enter Password"
-        android:textColorHint="@color/white"
-
-        android:layout_height="62dp"
-        android:layout_marginBottom="16dp"
-        android:ems="10"
         android:inputType="textPersonName"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/edtRePasswordRegister"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtNameAdmin" />
 
     <Button
         android:id="@+id/btnRegister"
-        android:layout_width="326dp"
-        android:layout_height="56dp"
+        android:layout_width="239dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="164dp"
         android:text="Register"
+        android:onClick="onRegisterClick"
         android:textColorHint="@color/black"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtRePasswordRegister"
-        app:layout_constraintVertical_bias="0.059" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="321dp"
-        android:layout_height="58dp"
+        android:layout_width="397dp"
+        android:layout_height="55dp"
         android:layout_marginTop="16dp"
 
-        android:text="Register"
+        android:text="Register for Admin"
         android:textAlignment="center"
         android:textColor="#070707"
-        android:textSize="45dp"
-        app:layout_constraintBottom_toTopOf="@+id/edtUsernameRegister"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
