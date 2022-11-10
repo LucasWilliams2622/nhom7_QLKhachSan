@@ -21,8 +21,8 @@ import java.util.ArrayList;
 
 public class BookedRoomAdapter extends BaseAdapter {
 
-    private Context context;
-    private ArrayList<AppRoom> list;
+    public Context context;
+    public ArrayList<AppRoom> list;
     EditText txtEndDay,txtStartDay;
     Button btnHuyPhong;
     TextView tvTenPhong,tvMaPhong,tvLoaiPhong,tvGiaPhong;
