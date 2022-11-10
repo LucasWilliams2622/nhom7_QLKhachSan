@@ -65,7 +65,6 @@ public class RoomActivity extends AppCompatActivity {
                                 String startDay = map.get("startDay").toString();
                                 String endDay = map.get("endDay").toString();
 
-
                                 AppRoom room = new AppRoom(idRoom,nameRoom,typeRoom,priceRoom,startDay,endDay);
                                 room.setIdRoom(document.getId());
                                 list.add(room);
