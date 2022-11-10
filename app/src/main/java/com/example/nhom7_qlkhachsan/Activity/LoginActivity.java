@@ -15,8 +15,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nhom7_qlkhachsan.MainActivity;
 import com.example.nhom7_qlkhachsan.R;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 public class LoginActivity extends AppCompatActivity {
+    private EditText edt_username, edt_password;
+    private Button btn_login, btn_register;
+
+    //Đăng nhập google
+    GoogleSignInClient gsc;
+    GoogleSignInAccount account;
+
     long check = 1;
 
     @Override
@@ -29,6 +40,35 @@ public class LoginActivity extends AppCompatActivity {
         Button btn_register = findViewById(R.id.btnGoRegister);
         ImageView ivShowPass = findViewById(R.id.ivShowPass);
 
+
+        //Đăng nhập google
+
+        GoogleSignInOptions gso = new GoogleSignInOptions
+                .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestProfile()
+                .requestEmail()
+                .build();
+        GoogleApiClient GoogleSignIn = null;
+        gsc = GoogleSignIn.getClient(LoginActivity.this, gso);
+        //Kiểm tra login Google
+        account = GoogleSignIn.getLastSignedInAccount(LoginActivity.this);
+        if (account != null) {
+
+
+            Intent homeIntent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(homeIntent);
+            finish();
+
+        }
+
+        Button sib = findViewById(R.id.btnGoogle);
+        sib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent googleIntent = gsc.getSignInIntent();
+                googleLauncher.launch(googleIntent);
+            }
+        });
 
 //        ThuThuDAO thuThuDAO = new ThuThuDAO(this);
         btn_login.setOnClickListener(new View.OnClickListener() {
